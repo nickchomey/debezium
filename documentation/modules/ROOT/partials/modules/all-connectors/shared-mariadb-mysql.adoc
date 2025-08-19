@@ -1912,9 +1912,11 @@ Only values with a size of up to 2GB are supported. It is recommended to externa
 
 |`JSON`
 |`STRING`
-a|`io.debezium.data.Json` +
+a|For MySQL: `io.debezium.data.Json` +
  +
-Contains the string representation of a `JSON` document, array, or scalar.
+Contains the string representation of a `JSON` document, array, or scalar. +
+ +
+For MariaDB: _n/a_ (JSON is treated as an alias for LONGTEXT, so no semantic type is applied).
 
 |`ENUM`
 |`STRING`

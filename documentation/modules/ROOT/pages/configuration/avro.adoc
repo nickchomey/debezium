@@ -142,7 +142,7 @@ key.converter.apicurio.registry.find-latest=true
 key.converter.schemas.enable": "false"
 key.converter.apicurio.registry.headers.enabled": "false"
 key.converter.apicurio.registry.as-confluent": "true"
-key.converter.apicurio.use-id: "contentId"
+key.converter.apicurio.registry.use-id: "contentId"
 value.converter=io.apicurio.registry.utils.converter.AvroConverter
 value.converter.apicurio.registry.url=http://apicurio:8080/apis/registry/v2
 value.converter.apicurio.registry.auto-register=true
@@ -150,7 +150,7 @@ value.converter.apicurio.registry.find-latest=true
 value.converter.schemas.enable": "false"
 value.converter.apicurio.registry.headers.enabled": "false"
 value.converter.apicurio.registry.as-confluent": "true"
-value.converter.apicurio.use-id: "contentId"
+value.converter.apicurio.registry.use-id: "contentId"
 schema.name.adjustment.mode=avro
 ----
 
@@ -158,7 +158,7 @@ When using Apicurio Registry in Confluent compatibility mode, the parameters are
 
 * `converter.apicurio.registry.as-confluent: true`:
 Forces Apicurio to serialize Kafka messages with the same structure as Confluent (magic byte + 4-byte schema ID).
-* `converter.apicurio.use-id: true` (or `globalId`): Ensures that only a numeric schema ID is written in the message, matching what Confluent consumers expect.
+* `converter.apicurio.registry.use-id: true` (or `globalId`): Ensures that only a numeric schema ID is written in the message, matching what Confluent consumers expect.
 * `converter.schemas.enable: false`: Prevents embedding the full Avro schema inside the Kafka message, which Confluent deserializers do not expect (they fetch the schema by ID from the registry).
 * `converter.apicurio.registry.headers.enabled: false`: Disables Apicurio-specific metadata headers that Confluent clients wouldn't understand, keeping the message format clean and compatible.
 
